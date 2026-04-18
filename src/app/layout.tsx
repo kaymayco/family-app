@@ -3,7 +3,7 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Costa Family Hub",
+  title: "Mayen Family Hub",
   description: "Keep your family organized",
 };
 

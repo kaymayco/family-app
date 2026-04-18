@@ -26,7 +26,7 @@ export default function Sidebar() {
   return (
     <aside className="w-56 shrink-0 bg-white border-r border-gray-100 flex flex-col py-6 px-4 shadow-sm">
       <div className="mb-8 px-2">
-        <h1 className="text-lg font-bold text-indigo-700">Costa Family</h1>
+        <h1 className="text-lg font-bold text-indigo-700">Mayen Family</h1>
         <p className="text-xs text-gray-400 mt-0.5">Family Hub</p>
       </div>
       <nav className="flex flex-col gap-1">
