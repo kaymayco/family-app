@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import { Providers } from "@/components/Providers";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -20,12 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`h-full ${spaceGrotesk.variable}`}>
-      <body className="flex h-full overflow-hidden bg-white" style={{ fontFamily: "var(--font-space), sans-serif" }}>
-        <Sidebar />
-        <main className="flex-1 overflow-y-auto p-8 md:p-12">
-          {children}
-        </main>
+    <html lang="en" className={`md:h-full ${spaceGrotesk.variable}`}>
+      <body className="min-h-screen md:flex md:h-full md:overflow-hidden bg-white" style={{ fontFamily: "var(--font-space), sans-serif" }}>
+        <Providers>
+          <Sidebar />
+          <main className="md:flex-1 md:overflow-y-auto p-4 md:p-8 lg:p-12 pb-24 md:pb-8 lg:pb-12">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );

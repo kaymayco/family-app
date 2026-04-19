@@ -10,10 +10,14 @@ create table if not exists calendar_events (
   date text not null,
   person text not null default 'Both',
   color text not null default 'bg-green-100 text-green-700 border-green-200',
+  google_event_id text unique,
   created_at timestamptz default now()
 );
 alter table calendar_events enable row level security;
 create policy "Public access" on calendar_events for all using (true) with check (true);
+
+-- Migration (run if table already exists):
+-- alter table calendar_events add column if not exists google_event_id text unique;
 
 -- TODO LISTS
 create table if not exists todo_lists (
@@ -30,8 +34,11 @@ create table if not exists todo_items (
   list_id uuid references todo_lists(id) on delete cascade,
   text text not null,
   done boolean default false,
+  priority text default 'none',
   created_at timestamptz default now()
 );
+-- Migration (run if table already exists):
+-- alter table todo_items add column if not exists priority text default 'none';
 alter table todo_items enable row level security;
 create policy "Public access" on todo_items for all using (true) with check (true);
 

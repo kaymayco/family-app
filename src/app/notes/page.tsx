@@ -86,8 +86,8 @@ export default function NotesPage() {
         ))}
       </div>
 
-      <div className="flex gap-4 h-[500px]">
-        <div className="w-60 shrink-0 flex flex-col gap-2 overflow-y-auto">
+      <div className="flex flex-col md:flex-row gap-4 md:h-[500px]">
+        <div className="w-full md:w-60 shrink-0 flex flex-col gap-2 max-h-[240px] md:max-h-none overflow-y-auto">
           {loading && <div className="text-center py-8 text-gray-400 text-sm">Loading...</div>}
           {!loading && filteredNotes.length === 0 && (
             <div className="text-center py-12 text-gray-400">
@@ -108,7 +108,7 @@ export default function NotesPage() {
           ))}
         </div>
 
-        <div className="flex-1 bg-white border-2 border-black shadow-[4px_4px_0_#000] overflow-hidden">
+        <div className="flex-1 bg-white border-2 border-black shadow-[4px_4px_0_#000] overflow-hidden min-h-[300px] md:min-h-0">
           {!activeNote ? (
             <div className="h-full flex items-center justify-center text-gray-300">
               <div className="text-center">
